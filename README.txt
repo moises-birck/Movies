@@ -1,28 +1,27 @@
-Foi Criado um projeto divido em camadas. 
+Projeto de Verificação de Prêmios de Pior Filme
+Este projeto é uma aplicação em .NET que realiza a verificação dos prêmios de pior filme. A aplicação foi dividida em camadas para melhor organização e separação de responsabilidades.
 
-1ª- API.
-	Conforme solicitado, foi montado uma camada de API para realizar o procedimento de verificar os prêmios de pior filme. 
-	
-	Ao startar a API, já irá chamar o código que busca o csv dentro da pasta do projeto, pasta "File/movielist.csv".
-	Ao pegar o csv, já insere no banco e libera a API.
-	
-	Na API, há dois métodos, uma para consultar o Maior vencendor e o menor do prêmio e outro que trás todos os indicados salvos na base.	
-	
-	
-2ª- Mesmo tendo na API, fiz um ConsoleApp, cujo o nome é "ReadMoviesCsv".
-	É responsável por chamar, as camadas onde irá ler e posteriormente colocar na base de dados. Acontece ao executar o mesmo.
-	Obs: Busca a pasta "File" e o arquivo movielist.csv, dentro dá camada do projeto citado.
+Estrutura do Projeto
+O projeto é composto por várias camadas, cada uma com sua finalidade:
 
-	Criei ele, pois acho estranho criar no inicio dá aplicação de uma API.
-	
-3ª- Camada de infraestrutura,"InfraMovies"
-	Onde será realizado as configs dos contextos e seus repositórios.
-	
-4ª- Dominio, "DomainMovies"
-	Ficando com as entidades dá aplicação.
+API: A camada de API é responsável por expor os serviços e endpoints necessários para consultar os prêmios de pior filme. Ao ser iniciada, a API automaticamente busca o arquivo CSV contendo a lista de filmes na pasta "File/movielist.csv" do projeto, insere os dados no banco de dados e libera a API para uso. A API possui dois métodos: um para consultar o maior e o menor vencedor de prêmios de pior filme, e outro para retornar todos os filmes indicados salvos no banco de dados.
 
-5ª- Aplicação, "ApplicationMovies"
-	Camada onde ficará toda a parte de negócios 
-	
-6ª- Camada de testes de integração.
-	Onde é feito testes de integrações dos filmes.
+ConsoleApp: Foi criado um aplicativo de console chamado "ReadMoviesCsv" que é responsável por ler o arquivo CSV e inserir os dados no banco de dados. Esse aplicativo é executado para realizar a carga inicial dos dados no momento da inicialização do projeto. Ele busca o arquivo "movielist.csv" na pasta "File" do projeto, tornando a carga de dados independente da API.
+
+Infraestrutura (InfraMovies): Nessa camada são realizadas as configurações dos contextos e repositórios do banco de dados.
+
+Domínio (DomainMovies): Nessa camada ficam as entidades do projeto, representando os objetos de domínio da aplicação.
+
+Aplicação (ApplicationMovies): Essa camada é responsável por toda a lógica de negócio da aplicação, incluindo a verificação dos prêmios de pior filme e a interação com o banco de dados.
+
+Testes de Integração: Essa camada contém os testes de integração do projeto, que são realizados para verificar a correta interação entre as diferentes camadas da aplicação.
+
+Instruções de Instalação e Execução
+Para instalar e executar o projeto, siga os passos abaixo:
+
+Clone o repositório para sua máquina local.
+Certifique-se de ter o .NET Framework instalado na sua máquina.
+Abra o projeto no Visual Studio ou em outra IDE de sua preferência.
+Compile e execute a solução.
+A API estará disponível para uso nos endpoints definidos.
+O aplicativo de console "ReadMoviesCsv" será executado automaticamente ao iniciar a aplicação, realizando a carga inicial dos dados.
